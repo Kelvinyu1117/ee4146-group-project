@@ -17,6 +17,17 @@ Topic:  San Francisco Crime Classification
 ```
 
 ### Dependencies Installation
+In this project, Conda is used for virual environment management, all the dependencies are stated in requirements.txt.
+
+Please feel free to add any libraries your need, but you need to remember to use `pip freeeze > requirements.txt` to update the dependencies list before push to the remote and also notify the groupmates.
+
+#### Create a virtual environment and install the dependencies
+```
+conda create --name <your-environment-name> python=3.8
+conda activiate <your-environment-name>
+pip install requirements.txt
+```
+
 
 
 ### Development Guide
