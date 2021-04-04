@@ -25,7 +25,7 @@ Please feel free to add any libraries your need, but you need to remember to use
 ```
 conda create --name <your-environment-name> python=3.8
 conda activiate <your-environment-name>
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 
