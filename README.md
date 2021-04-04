@@ -34,3 +34,6 @@ pip install -r requirements.txt
 
 * Python is the main development language
 * Try not to write the long functions directly in notebooks, write it in a separate Python script and import it in the notebook is better (Easy to debug)
+
+### References
+https://www.kaggle.com/c/sf-crime/overview
