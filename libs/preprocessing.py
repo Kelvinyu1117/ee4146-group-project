@@ -12,6 +12,10 @@ def label_encode(data: pd.DataFrame, attributes: [str]) -> (pd.DataFrame, [str])
     return data_after, list(labelencoder.classes_)
 
 
+def flatten(nested_lists): return [
+    item for sublist in nested_lists for item in sublist]
+
+
 def one_hot_encode(data: pd.DataFrame, attributes: [str]) -> pd.DataFrame:
     oneHotEncoder = OneHotEncoder()
     data_after, mappings = label_encode(data, attributes)
@@ -25,7 +29,16 @@ def one_hot_encode(data: pd.DataFrame, attributes: [str]) -> pd.DataFrame:
             one_hot_data.toarray(), columns=one_hot_columns)
 
         data_after.drop([attr], axis=1, inplace=True)
-        data_after = pd.concat([data_after, one_hot_df], axis=1)
+        concatenated_dataframes_columns = [
+            list(data_after.columns),
+            list(one_hot_df.columns),
+        ]
+
+        data_after = pd.concat([data_after.reset_index(drop=True),
+                                one_hot_df.reset_index(drop=True)],
+                               axis=1,  ignore_index=True)
+
+        data_after.columns = flatten(concatenated_dataframes_columns)
 
     return data_after
 
@@ -100,6 +113,16 @@ def process_data_time(data: pd.DataFrame) -> pd.DataFrame:
     date = extract_date(data)
     day_part = extract_time(data)
     data_after.drop(["Dates"], axis=1, inplace=True)
-    data_after = pd.concat([data_after, date, day_part], axis=1)
+    concatenated_dataframes_columns = [
+        list(data_after.columns),
+        list(date.columns),
+        list(day_part)
+    ]
+
+    data_after = pd.concat([data_after.reset_index(drop=True),
+                            date.reset_index(drop=True),
+                            day_part.reset_index(drop=True)], axis=1, ignore_index=True)
+
+    data_after.columns = flatten(concatenated_dataframes_columns)
 
     return data_after
