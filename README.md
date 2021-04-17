@@ -1,4 +1,4 @@
-# EE4147 Group Project
+# EE4146 Group Project
 Topic:  San Francisco Crime Classification
 ---
 
