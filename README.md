@@ -35,5 +35,10 @@ pip install -r requirements.txt
 * Python is the main development language
 * Try not to write the long functions directly in notebooks, write it in a separate Python script and import it in the notebook is better (Easy to debug)
 
+
+### Colab notebooks and Experimental results
+https://drive.google.com/drive/folders/16EVE9BEewwiTdFO9U73FWisgIBZ5BNyb?usp=sharing
+https://drive.google.com/drive/folders/1oyTVc4IscgeyPszvDVfFQzxaMGHpGOKw?usp=sharing
+
 ### References
 https://www.kaggle.com/c/sf-crime/overview
